@@ -3,7 +3,7 @@ export enum Methodology {
   WATERFALL = "waterfall",
 }
 export interface Product {
-  productId: string;
+  productId: number;
   productName: string;
   productOwnerName: string;
   Developers: string[];
@@ -11,3 +11,5 @@ export interface Product {
   startDate: string;
   methodology: Methodology;
 }
+
+export type NewProductEntry = Omit<Product, "productId">;

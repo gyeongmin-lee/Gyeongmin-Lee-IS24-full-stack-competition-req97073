@@ -2,7 +2,7 @@ import { Methodology, Product } from "../src/types";
 
 const products: Product[] = [
   {
-    productId: "1",
+    productId: 1,
     productName: "BC eServices",
     productOwnerName: "Jasmine Lee",
     Developers: ["Nadia Singh", "Hao Chen", "Aiden Patel", "Sara Kim"],
@@ -11,7 +11,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "2",
+    productId: 2,
     productName: "BC Health Gateway",
     productOwnerName: "Jasmine Lee",
     Developers: ["Nikolai Petrov", "Liam Chen", "Aiden Patel"],
@@ -20,7 +20,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "3",
+    productId: 3,
     productName: "BC Parks Reservation",
     productOwnerName: "Catherine Wong",
     Developers: [
@@ -35,7 +35,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "4",
+    productId: 4,
     productName: "BC Driver Licensing",
     productOwnerName: "Liam Chen",
     Developers: [
@@ -50,7 +50,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "5",
+    productId: 5,
     productName: "BC Housing Registry",
     productOwnerName: "Sarah Lee",
     Developers: ["Hao Chen", "Nadia Singh"],
@@ -59,7 +59,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "6",
+    productId: 6,
     productName: "BC Business Registry",
     productOwnerName: "Jasmine Lee",
     Developers: ["Aiden Patel", "Mia Chen", "Liam Chen"],
@@ -68,7 +68,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "7",
+    productId: 7,
     productName: "BC Emergency Services",
     productOwnerName: "Nancy Chen",
     Developers: [
@@ -83,7 +83,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "8",
+    productId: 8,
     productName: "BC Driver Exam",
     productOwnerName: "Sophia Wang",
     Developers: ["Mohammed Ali", "Liam Chen", "Mia Chen"],
@@ -92,7 +92,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "9",
+    productId: 9,
     productName: "BC Passport Services",
     productOwnerName: "Karen Lee",
     Developers: ["Sara Kim", "Nikolai Petrov", "Hao Chen"],
@@ -101,7 +101,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "10",
+    productId: 10,
     productName: "BC Employment Services",
     productOwnerName: "Michael Li",
     Developers: [
@@ -116,7 +116,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "11",
+    productId: 11,
     productName: "BC Small Business Support",
     productOwnerName: "Sarah Lee",
     Developers: ["Olivia Martinez", "Mia Chen"],
@@ -125,7 +125,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "12",
+    productId: 12,
     productName: "BC Immigration Services",
     productOwnerName: "Jasmine Lee",
     Developers: ["Eliana Wong"],
@@ -134,7 +134,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "13",
+    productId: 13,
     productName: "BC Rental Assistance",
     productOwnerName: "Michael Li",
     Developers: ["Eliana Wong", "Liam Chen", "Aiden Patel", "Sara Kim"],
@@ -143,7 +143,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "14",
+    productId: 14,
     productName: "BC Healthcare Access",
     productOwnerName: "Catherine Wong",
     Developers: ["Eliana Wong", "Sara Kim", "Mia Chen", "Mohammed Ali"],
@@ -152,7 +152,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "15",
+    productId: 15,
     productName: "BC Housing Support",
     productOwnerName: "Liam Chen",
     Developers: [
@@ -167,7 +167,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "16",
+    productId: 16,
     productName: "BC Childcare Services",
     productOwnerName: "Sarah Lee",
     Developers: ["Hao Chen", "Nadia Singh", "Olivia Martinez", "Eliana Wong"],
@@ -176,7 +176,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "17",
+    productId: 17,
     productName: "BC Agriculture Services",
     productOwnerName: "Jasmine Lee",
     Developers: ["Mia Chen", "Liam Chen"],
@@ -185,7 +185,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "18",
+    productId: 18,
     productName: "BC Mental Health Services",
     productOwnerName: "Nancy Chen",
     Developers: [
@@ -200,7 +200,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "19",
+    productId: 19,
     productName: "BC Tax Services",
     productOwnerName: "Sophia Wang",
     Developers: ["Mohammed Ali", "Liam Chen", "Mia Chen"],
@@ -209,7 +209,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "20",
+    productId: 20,
     productName: "BC Employment Standards",
     productOwnerName: "Karen Lee",
     Developers: ["Sara Kim", "Nikolai Petrov", "Hao Chen"],
@@ -218,7 +218,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "21",
+    productId: 21,
     productName: "BC Food Safety",
     productOwnerName: "Michael Li",
     Developers: ["Nadia Singh", "Aiden Patel", "Eliana Wong"],
@@ -227,7 +227,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "22",
+    productId: 22,
     productName: "BC Student Loans",
     productOwnerName: "Sarah Lee",
     Developers: ["Aiden Patel", "Mia Chen"],
@@ -236,7 +236,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "23",
+    productId: 23,
     productName: "BC Transit Services",
     productOwnerName: "Jasmine Lee",
     Developers: ["Eliana Wong"],
@@ -245,7 +245,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "24",
+    productId: 24,
     productName: "BC Natural Resources",
     productOwnerName: "Michael Li",
     Developers: ["Eliana Wong", "Liam Chen", "Olivia Martinez", "Sara Kim"],
@@ -254,7 +254,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "25",
+    productId: 25,
     productName: "BC Consumer Protection",
     productOwnerName: "Catherine Wong",
     Developers: ["Eliana Wong", "Sara Kim", "Mia Chen", "Mohammed Ali"],
@@ -263,7 +263,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "26",
+    productId: 26,
     productName: "BC Highway Services",
     productOwnerName: "Liam Chen",
     Developers: ["Nadia Singh", "Sara Kim", "Aiden Patel"],
@@ -272,7 +272,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "27",
+    productId: 27,
     productName: "BC Tourism Services",
     productOwnerName: "Sarah Lee",
     Developers: ["Hao Chen", "Nadia Singh", "Aiden Patel", "Nikolai Petrov"],
@@ -281,7 +281,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "28",
+    productId: 28,
     productName: "BC Education Services",
     productOwnerName: "Jasmine Lee",
     Developers: ["Mia Chen", "Liam Chen"],
@@ -290,7 +290,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "29",
+    productId: 29,
     productName: "BC Housing Registry 2",
     productOwnerName: "Nancy Chen",
     Developers: [
@@ -305,7 +305,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "30",
+    productId: 30,
     productName: "BC Government Grants",
     productOwnerName: "Sophia Wang",
     Developers: ["Mohammed Ali", "Liam Chen", "Mia Chen"],
@@ -314,7 +314,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "31",
+    productId: 31,
     productName: "BC Child Support Services",
     productOwnerName: "Karen Lee",
     Developers: ["Sara Kim", "Eliana Wong", "Hao Chen"],
@@ -323,7 +323,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "32",
+    productId: 32,
     productName: "BC Workforce Development",
     productOwnerName: "Michael Li",
     Developers: [
@@ -338,7 +338,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "33",
+    productId: 33,
     productName: "BC Environmental Services",
     productOwnerName: "Sarah Lee",
     Developers: ["Aiden Patel", "Mia Chen"],
@@ -347,7 +347,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "34",
+    productId: 34,
     productName: "BC Road Safety",
     productOwnerName: "Jasmine Lee",
     Developers: ["Nadia Singh", "Sara Kim", "Eliana Wong"],
@@ -356,7 +356,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "35",
+    productId: 35,
     productName: "BC Disability Services",
     productOwnerName: "Michael Li",
     Developers: ["Eliana Wong", "Liam Chen", "Aiden Patel", "Sara Kim"],
@@ -365,7 +365,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "36",
+    productId: 36,
     productName: "BC Public Safety",
     productOwnerName: "Catherine Wong",
     Developers: ["Eliana Wong", "Sara Kim", "Mia Chen", "Mohammed Ali"],
@@ -374,7 +374,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "37",
+    productId: 37,
     productName: "BC Emergency Services",
     productOwnerName: "Liam Chen",
     Developers: [
@@ -389,7 +389,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "38",
+    productId: 38,
     productName: "BC Business Registration",
     productOwnerName: "Sarah Lee",
     Developers: ["Hao Chen", "Nadia Singh", "Aiden Patel", "Eliana Wong"],
@@ -398,7 +398,7 @@ const products: Product[] = [
     methodology: Methodology.WATERFALL,
   },
   {
-    productId: "39",
+    productId: 39,
     productName: "BC Driver Licensing",
     productOwnerName: "Jasmine Lee",
     Developers: ["Mia Chen", "Liam Chen"],
@@ -407,7 +407,7 @@ const products: Product[] = [
     methodology: Methodology.AGILE,
   },
   {
-    productId: "40",
+    productId: 40,
     productName: "BC Affordable Housing",
     productOwnerName: "Nancy Chen",
     Developers: [
