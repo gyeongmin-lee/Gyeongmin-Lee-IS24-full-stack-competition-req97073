@@ -1,6 +1,6 @@
 const colors = {
   brand1: "#003366",
-  brand2: "FCBA19",
+  brand2: "#FCBA19",
   text: "#313132",
   link: "#1A5A96",
   bg1: "#38598A",
