@@ -26,6 +26,24 @@ describe("Products can be fetched", () => {
   });
 });
 
+describe("One product can be fetched", () => {
+  test("GET /api/products/:id responds with 200", async () => {
+    const id = 1;
+    await api.get(`/api/products/${id}`).expect(200);
+  });
+
+  test("GET /api/products/:id responds with correct data", async () => {
+    const id = 1;
+    const response = await api.get(`/api/products/${id}`);
+    expect(response.body).toEqual(products[id - 1]);
+  });
+
+  test("GET /api/products/:id responds with 404 if product not found", async () => {
+    const id = 100;
+    await api.get(`/api/products/${id}`).expect(404);
+  });
+});
+
 describe("Product can be added", () => {
   const testProduct = {
     productName: "BC Test App",
@@ -115,5 +133,43 @@ describe("Product can be added", () => {
       .expect(400);
 
     expect(response2.body.message).toContain("Error: No developers");
+  });
+});
+
+describe("Product can be updated", () => {
+  const productTobeUpdated = products.find((p) => p.productId === 1);
+  const updatedProduct = {
+    ...productTobeUpdated,
+    productName: "BC Test App",
+    productOwnerName: "Jasmine Lee",
+    Developers: ["Updated John Doe", "Jane Doe"],
+    scrumMasterName: "Karen Lee",
+    startDate: "2023/02/13",
+    methodology: "agile",
+  };
+
+  test("PUT /api/products/:id responds with 200", async () => {
+    const id = 1;
+    await api.put(`/api/products/${id}`).send(updatedProduct).expect(200);
+  });
+
+  test("PUT /api/products/:id responds with correct data", async () => {
+    const id = 1;
+    const response = await api.put(`/api/products/${id}`).send(updatedProduct);
+    expect(response.body).toMatchObject(updatedProduct);
+  });
+
+  test("PUT /api/products/:id returns error 400 if required field is missing", async () => {
+    const id = 1;
+    const updatedProductWithoutName = {
+      ...updatedProduct,
+      productName: undefined,
+    };
+    const response = await api
+      .put(`/api/products/${id}`)
+      .send(updatedProductWithoutName)
+      .expect(400);
+
+    expect(response.body.message).toContain("some fields are missing");
   });
 });

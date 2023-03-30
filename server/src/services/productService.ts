@@ -6,6 +6,10 @@ const getEntries = (): Product[] => {
   return products;
 };
 
+const getOneEntry = (id: number): Product | undefined => {
+  return products.find((product) => product.productId === id);
+};
+
 const addEntry = (entry: NewProductEntry) => {
   const newProductEntry = {
     productId: getNewProductId(),
@@ -16,7 +20,24 @@ const addEntry = (entry: NewProductEntry) => {
   return newProductEntry;
 };
 
+const updateEntry = (id: number, entry: NewProductEntry) => {
+  const product = products.find((product) => product.productId === id);
+
+  if (product) {
+    product.productName = entry.productName;
+    product.productOwnerName = entry.productOwnerName;
+    product.Developers = entry.Developers;
+    product.scrumMasterName = entry.scrumMasterName;
+    product.startDate = entry.startDate;
+    product.methodology = entry.methodology;
+  }
+
+  return product;
+};
+
 export default {
   getEntries,
   addEntry,
+  updateEntry,
+  getOneEntry,
 };

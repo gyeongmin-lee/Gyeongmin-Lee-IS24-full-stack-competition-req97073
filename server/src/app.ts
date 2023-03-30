@@ -6,9 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/api/ping", (_req, res) => {
-  console.log("someone pinged here");
-  res.send("pong");
+app.get("/api/health", (_req, res) => {
+  res.send("ok");
 });
 
 app.use("/api/products", productRouter);
