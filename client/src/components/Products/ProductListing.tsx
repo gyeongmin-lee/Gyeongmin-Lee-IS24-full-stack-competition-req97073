@@ -30,7 +30,7 @@ const DevelopersCell = ({ value: devs }: { value: string[] }) => {
       label={
         <ul>
           {devs.slice(1).map((dev) => (
-            <li>{dev}</li>
+            <li key={dev}>{dev}</li>
           ))}
         </ul>
       }

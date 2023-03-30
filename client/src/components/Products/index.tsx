@@ -54,7 +54,7 @@ const Products = () => {
   };
 
   return (
-    <Container maxW="container.xl" padding={5}>
+    <Container maxW="container.xl" padding={5} mb="16">
       <VStack spacing={3} alignItems="flex-start">
         <HStack justifyContent="space-between" w="full" alignItems="flex-end">
           <Heading size="lg">Products</Heading>

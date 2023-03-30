@@ -9,6 +9,14 @@ const Button = {
         textDecoration: "underline",
       },
     },
+    subtle: {
+      bg: "gray.100",
+      color: "gray.700",
+      _hover: {
+        opacity: 0.8,
+        textDecoration: "underline",
+      },
+    },
     outline: {
       border: "2px solid",
       borderColor: "brand1",
