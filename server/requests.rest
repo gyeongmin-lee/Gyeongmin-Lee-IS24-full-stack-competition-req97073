@@ -2,3 +2,16 @@ GET http://localhost:3000/api/ping
 
 ### Get all products
 GET http://localhost:3000/api/products
+
+### New product
+POST http://localhost:3000/api/products
+content-type: application/json
+
+{
+  "productName": "BC Test App",
+  "productOwnerName": "Jasmine Lee",
+  "Developers": ["John Doe"],
+  "scrumMasterName": "something",
+  "startDate": "2023/02/13",
+  "methodology": "agile"
+}
