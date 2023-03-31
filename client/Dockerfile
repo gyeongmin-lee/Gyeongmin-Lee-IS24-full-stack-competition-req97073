@@ -11,7 +11,7 @@ COPY package.json .
 COPY package-lock.json .
 
 # Install production dependencies using npm ci command
-RUN npm ci --production
+RUN npm ci
 
 # Copy the rest of the application code to the working directory
 COPY . .
