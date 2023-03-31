@@ -12,4 +12,9 @@ export interface Product {
   methodology: Methodology;
 }
 
+export enum Filter {
+  ScrumMaster = "scrumMaster",
+  Developer = "developer",
+}
+
 export type NewProductEntry = Omit<Product, "productId">;

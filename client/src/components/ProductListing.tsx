@@ -12,7 +12,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import format from "date-fns/format";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { CellProps, Column, useTable } from "react-table";
 import { Methodology, Product } from "../types";
 import EditProductDrawer from "./EditProductDrawer";
@@ -45,7 +45,7 @@ const DevelopersCell = ({ value: devs }: { value: string[] }) => {
   );
 };
 
-const ProductListing = ({ products }: Props) => {
+const ProductListing = memo(({ products }: Props) => {
   const columns = useMemo<Column<Product>[]>(
     () => [
       {
@@ -140,6 +140,6 @@ const ProductListing = ({ products }: Props) => {
       </Table>
     </TableContainer>
   );
-};
+});
 
 export default ProductListing;

@@ -4,16 +4,19 @@ import {
   AlertIcon,
   AlertTitle,
   Container,
+  Flex,
   Heading,
-  HStack,
   Skeleton,
   Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import productService from "../services/products";
+import { Filter } from "../types";
 import ProductListing from "./ProductListing";
+import ProductSearchForm from "./_common/ProductSearchForm";
 
 const Products = () => {
   const {
@@ -21,6 +24,9 @@ const Products = () => {
     error,
     data: products,
   } = useQuery("products", productService.getAll);
+
+  const [filter, setFilter] = useState<Filter>(Filter.ScrumMaster);
+  const [query, setQuery] = useState<string>("");
 
   const showLoading = () => (
     <Stack w="100%">
@@ -56,10 +62,26 @@ const Products = () => {
   return (
     <Container maxW="container.xl" padding={5} mb="16">
       <VStack spacing={3} alignItems="flex-start">
-        <HStack justifyContent="space-between" w="full" alignItems="flex-end">
-          <Heading size="lg">Products</Heading>
-          {products && <Text>{products.length} Products</Text>}
-        </HStack>
+        <Heading size="lg">Products</Heading>
+        <Flex
+          gap={[2, 4]}
+          flexDir={["column-reverse", "row"]}
+          justifyContent="flex-start"
+          w="full"
+          alignItems={["flex-start", "center"]}
+        >
+          <ProductSearchForm
+            filter={filter}
+            query={query}
+            onFilterChange={setFilter}
+            onQueryChange={setQuery}
+          />
+          {products && (
+            <Text fontSize="md" flexShrink="0">
+              {products.length} Products
+            </Text>
+          )}
+        </Flex>
         {isLoading || !products ? (
           showLoading()
         ) : error ? (

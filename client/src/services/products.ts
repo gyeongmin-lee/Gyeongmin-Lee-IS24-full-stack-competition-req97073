@@ -29,4 +29,16 @@ const updateProduct = async ({
   return response.data;
 };
 
-export default { getAll, addProduct, updateProduct };
+const deleteProduct = async (id: number) => {
+  const response = await axios.delete<Product>(`${apiBaseUrl}/products/${id}`);
+  return response.data;
+};
+
+const productService = {
+  getAll,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+};
+
+export default productService;
