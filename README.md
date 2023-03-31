@@ -25,6 +25,16 @@ docker compose up --build
 
 3. Open a web browser and go to http://localhost:8080 to access the app (API documentation is available at http://localhost:3000/api/api-docs).
 
+## Screenshots
+![Main Screen](./.github/screenshots/01_main.png?raw=true "Main Screen")
+*Main Screen*
+
+![Add Product Screen](./.github/screenshots/02_add.png?raw=true "Add Screen")
+*Add Product Screen*
+
+![Edit Product Screen](./.github/screenshots/03_edit.png?raw=true "Edit Screen")
+*Edit Product Screen*
+
 ## Technologies Used
 
 - React
