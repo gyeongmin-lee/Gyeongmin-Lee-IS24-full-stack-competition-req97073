@@ -25,7 +25,7 @@ const Products = () => {
     data: products,
   } = useQuery("products", productService.getAll);
 
-  const [filter, setFilter] = useState<Filter>(Filter.ScrumMaster);
+  const [filter, setFilter] = useState<Filter>(Filter.SCRUM_MASTER);
   const [query, setQuery] = useState<string>("");
 
   const showLoading = () => (

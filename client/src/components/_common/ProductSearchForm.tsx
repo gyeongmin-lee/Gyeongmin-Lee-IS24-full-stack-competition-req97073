@@ -29,13 +29,13 @@ const ProductSearchForm: React.FC<Props> = ({
         onChange={(e) => onFilterChange(e.target.value as Filter)}
         maxW="max-content"
       >
-        <option value={Filter.ScrumMaster}>Scrum Master</option>
-        <option value={Filter.Developer}>Developer</option>
+        <option value={Filter.SCRUM_MASTER}>Scrum Master</option>
+        <option value={Filter.DEVELOPER}>Developer</option>
       </Select>
       <InputGroup>
         <Input
           placeholder={`Search projects by ${
-            filter === Filter.ScrumMaster ? "scrum master" : "developer"
+            filter === Filter.SCRUM_MASTER ? "scrum master" : "developer"
           } name`}
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}

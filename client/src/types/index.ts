@@ -13,8 +13,8 @@ export interface Product {
 }
 
 export enum Filter {
-  ScrumMaster = "scrumMaster",
-  Developer = "developer",
+  SCRUM_MASTER = "scrumMaster",
+  DEVELOPER = "developer",
 }
 
 export type NewProductEntry = Omit<Product, "productId">;
