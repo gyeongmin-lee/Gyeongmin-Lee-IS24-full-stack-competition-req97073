@@ -1,3 +1,7 @@
+/**
+ * Gov BC Brand Colours
+ * https://developer.gov.bc.ca/Design-System/Colour-Palette
+ */
 const colors = {
   brand1: "#003366",
   brand2: "#FCBA19",
