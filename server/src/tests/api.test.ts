@@ -26,6 +26,26 @@ describe("Products can be fetched", () => {
   });
 });
 
+describe("Products can be fetched with query params", () => {
+  test("GET /api/products responds with 200", async () => {
+    await api.get("/api/products?type=scrumMaster&query=Lee").expect(200);
+  });
+
+  test("GET /api/products responds with correct number of products for scrum master", async () => {
+    const response = await api.get(
+      "/api/products?type=scrumMaster&query=Kwame Brown"
+    );
+    expect(response.body).toHaveLength(4);
+  });
+
+  test("GET /api/products responds with correct number of products for developer", async () => {
+    const response = await api.get(
+      "/api/products?type=developer&query=Hao Chen"
+    );
+    expect(response.body).toHaveLength(13);
+  });
+});
+
 describe("One product can be fetched", () => {
   test("GET /api/products/:id responds with 200", async () => {
     const id = 1;

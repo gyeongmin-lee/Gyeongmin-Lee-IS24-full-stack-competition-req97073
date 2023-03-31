@@ -1,8 +1,26 @@
 import products from "../../data/products";
-import { NewProductEntry, Product } from "../types";
+import { Filter, NewProductEntry, Product, ProductQueryParams } from "../types";
 import { getNewProductId } from "../utils";
 
-const getEntries = (): Product[] => {
+const getEntries = ({ type, query }: ProductQueryParams): Product[] => {
+  if (!query || !type) {
+    return products;
+  }
+
+  if (type === Filter.SCRUM_MASTER) {
+    return products.filter((product) =>
+      product.scrumMasterName
+        .toLocaleLowerCase()
+        .includes(query.toLocaleLowerCase())
+    );
+  } else if (type === Filter.DEVELOPER) {
+    return products.filter((product) =>
+      product.Developers.some((developer) =>
+        developer.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+      )
+    );
+  }
+
   return products;
 };
 

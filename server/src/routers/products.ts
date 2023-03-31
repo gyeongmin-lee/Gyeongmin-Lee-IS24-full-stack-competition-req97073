@@ -1,11 +1,13 @@
 import express from "express";
 import productService from "../services/productService";
+import { ProductQueryParams } from "../types";
 import { toNewProductEntry } from "../utils";
 
 const router = express.Router();
 
-router.get("/", (_req, res) => {
-  res.send(productService.getEntries());
+router.get("/", (req, res) => {
+  const queries = req.query as ProductQueryParams;
+  res.send(productService.getEntries(queries));
 });
 
 router.get("/:id", (req, res) => {
