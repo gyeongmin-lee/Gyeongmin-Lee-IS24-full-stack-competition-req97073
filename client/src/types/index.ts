@@ -17,4 +17,9 @@ export enum Filter {
   DEVELOPER = "developer",
 }
 
+export interface ProductQueryParams {
+  type?: Filter;
+  query?: string;
+}
+
 export type NewProductEntry = Omit<Product, "productId">;

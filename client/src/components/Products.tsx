@@ -13,20 +13,24 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useQuery } from "react-query";
+import { useDebounce } from "use-debounce";
 import productService from "../services/products";
 import { Filter } from "../types";
 import ProductListing from "./ProductListing";
 import ProductSearchForm from "./_common/ProductSearchForm";
 
 const Products = () => {
+  const [filter, setFilter] = useState<Filter>(Filter.SCRUM_MASTER);
+  const [query, setQuery] = useState<string>("");
+  const [debouncedQuery] = useDebounce(query, 500);
+
   const {
     isLoading,
     error,
     data: products,
-  } = useQuery("products", productService.getAll);
-
-  const [filter, setFilter] = useState<Filter>(Filter.SCRUM_MASTER);
-  const [query, setQuery] = useState<string>("");
+  } = useQuery(["products", filter, debouncedQuery], () =>
+    productService.getAll({ type: filter, query: debouncedQuery })
+  );
 
   const showLoading = () => (
     <Stack w="100%">

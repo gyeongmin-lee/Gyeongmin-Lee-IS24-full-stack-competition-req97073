@@ -1,9 +1,15 @@
 import axios from "axios";
 import { apiBaseUrl } from "../constants";
-import { NewProductEntry, Product } from "../types";
+import { NewProductEntry, Product, ProductQueryParams } from "../types";
 
-const getAll = async () => {
-  const response = await axios.get<Product[]>(`${apiBaseUrl}/products`);
+const getAll = async ({ type, query }: ProductQueryParams) => {
+  const url = new URL(`${apiBaseUrl}/products`);
+  if (type && query) {
+    url.searchParams.append("type", type);
+    url.searchParams.append("query", query);
+  }
+
+  const response = await axios.get<Product[]>(url.toString());
   return response.data;
 };
 
