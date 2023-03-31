@@ -35,9 +35,20 @@ const updateEntry = (id: number, entry: NewProductEntry) => {
   return product;
 };
 
+const deleteEntry = (id: number) => {
+  const product = products.find((product) => product.productId === id);
+
+  if (product) {
+    products.splice(products.indexOf(product), 1);
+  }
+
+  return product;
+};
+
 export default {
   getEntries,
   addEntry,
   updateEntry,
   getOneEntry,
+  deleteEntry,
 };

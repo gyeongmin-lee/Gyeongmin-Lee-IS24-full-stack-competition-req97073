@@ -51,4 +51,22 @@ router.put("/:id", (req, res) => {
   }
 });
 
+router.delete("/:id", (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const deletedEntry = productService.deleteEntry(id);
+    if (deletedEntry) {
+      res.status(204).json(deletedEntry);
+    } else {
+      res.status(404).send({ message: "Product not found" });
+    }
+  } catch (error) {
+    let errorMessage = "Something went wrong.";
+    if (error instanceof Error) {
+      errorMessage += " Error: " + error.message;
+    }
+    res.status(400).send({ message: errorMessage });
+  }
+});
+
 export default router;

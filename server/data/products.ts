@@ -423,4 +423,6 @@ const products: Product[] = [
   },
 ];
 
+console.log("length", products.length);
+
 export default products;

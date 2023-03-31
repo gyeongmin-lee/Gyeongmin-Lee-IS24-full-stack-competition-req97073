@@ -6,7 +6,7 @@ const api = supertest(app);
 
 describe("API can be reached", () => {
   test("GET /api responds with 200", async () => {
-    await api.get("/api/ping").expect(200).expect("pong");
+    await api.get("/api/health").expect(200).expect("ok");
   });
 });
 
@@ -171,5 +171,28 @@ describe("Product can be updated", () => {
       .expect(400);
 
     expect(response.body.message).toContain("some fields are missing");
+  });
+});
+
+describe("Product can be deleted", () => {
+  test("DELETE /api/products/:id responds with 204", async () => {
+    const id = 1;
+    await api.delete(`/api/products/${id}`).expect(204);
+  });
+
+  test("DELETE /api/products/:id removes product from database", async () => {
+    const originalProducts = await api.get("/api/products");
+    const productLength = (originalProducts.body as unknown[]).length;
+
+    const id = 2;
+    await api.delete(`/api/products/${id}`);
+
+    const response = await api.get("/api/products");
+    expect(response.body).toHaveLength(productLength - 1);
+  });
+
+  test("DELETE /api/products/:id responds with 404 if product not found", async () => {
+    const id = 100;
+    await api.delete(`/api/products/${id}`).expect(404);
   });
 });

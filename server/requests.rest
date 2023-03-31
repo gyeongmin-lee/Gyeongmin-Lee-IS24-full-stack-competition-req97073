@@ -34,3 +34,6 @@ content-type: application/json
   "startDate": "2023/01/01",
   "methodology": "waterfall"
 }
+
+### Delete product by id
+DELETE http://localhost:3000/api/products/1
