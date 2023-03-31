@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import productService from "../../services/products";
+import productService from "../services/products";
 import ProductListing from "./ProductListing";
 
 const Products = () => {

@@ -15,4 +15,18 @@ const addProduct = async (newProduct: NewProductEntry) => {
   return response.data;
 };
 
-export default { getAll, addProduct };
+const updateProduct = async ({
+  id,
+  updatedProduct,
+}: {
+  id: number;
+  updatedProduct: NewProductEntry;
+}) => {
+  const response = await axios.put<Product>(
+    `${apiBaseUrl}/products/${id}`,
+    updatedProduct
+  );
+  return response.data;
+};
+
+export default { getAll, addProduct, updateProduct };

@@ -1,7 +1,5 @@
-import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import {
   Badge,
-  chakra,
   HStack,
   Table,
   TableContainer,
@@ -15,8 +13,9 @@ import {
 } from "@chakra-ui/react";
 import format from "date-fns/format";
 import { useMemo } from "react";
-import { CellProps, Column, useSortBy, useTable } from "react-table";
-import { Methodology, Product } from "../../types";
+import { CellProps, Column, useTable } from "react-table";
+import { Methodology, Product } from "../types";
+import EditProductDrawer from "./EditProductDrawer";
 
 interface Props {
   products: Product[];
@@ -50,6 +49,15 @@ const ProductListing = ({ products }: Props) => {
   const columns = useMemo<Column<Product>[]>(
     () => [
       {
+        Header: () => null,
+        accessor: "productId",
+        id: "editProduct",
+        Cell: ({ cell: { value } }: CellProps<Product, number>) => {
+          const product = products.find((p) => p.productId === value);
+          return <EditProductDrawer product={product} />;
+        },
+      },
+      {
         Header: "ID",
         accessor: "productId",
       },
@@ -73,7 +81,6 @@ const ProductListing = ({ products }: Props) => {
         Cell: ({ cell: { value } }: CellProps<Product, string[]>) => (
           <DevelopersCell value={value} />
         ),
-        disableSortBy: true,
       },
       {
         Header: "Scrum Master",
@@ -82,7 +89,6 @@ const ProductListing = ({ products }: Props) => {
       {
         Header: "Start Date",
         accessor: (row: Product) => new Date(row.startDate),
-        sortType: "datetime",
         Cell: ({ cell: { value } }: CellProps<Product, Date>) => (
           <div>{format(value, "yyyy/MM/dd")}</div>
         ),
@@ -101,11 +107,11 @@ const ProductListing = ({ products }: Props) => {
         ),
       },
     ],
-    []
+    [products]
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable<Product>({ columns, data: products }, useSortBy);
+    useTable<Product>({ columns, data: products });
 
   return (
     <TableContainer w="full">
@@ -114,18 +120,7 @@ const ProductListing = ({ products }: Props) => {
           {headerGroups.map((headerGroup) => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
-                  <chakra.span pl="4">
-                    {column.isSorted ? (
-                      column.isSortedDesc ? (
-                        <TriangleDownIcon aria-label="sorted descending" />
-                      ) : (
-                        <TriangleUpIcon aria-label="sorted ascending" />
-                      )
-                    ) : null}
-                  </chakra.span>
-                </Th>
+                <Th {...column.getHeaderProps()}>{column.render("Header")}</Th>
               ))}
             </Tr>
           ))}
