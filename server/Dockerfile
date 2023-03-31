@@ -19,8 +19,5 @@ COPY . .
 # Expose port 3000 for the container
 EXPOSE 3000
 
-# Run TypeScript compiler to build the application
-RUN npm run tsc
-
 # Set the default command to start the application using npm run start command
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
