@@ -25,7 +25,7 @@ docker compose up --build
 
 3. Open a web browser and go to http://localhost:8080 to access the app (API documentation is available at http://localhost:3000/api/api-docs).
 
-### Running the App without Docker
+## Running the App without Docker
 
 1. Clone the repository:
 
