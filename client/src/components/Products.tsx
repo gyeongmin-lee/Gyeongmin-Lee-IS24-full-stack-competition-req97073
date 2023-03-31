@@ -1,24 +1,18 @@
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  Container,
-  Flex,
-  Heading,
-  Skeleton,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Container, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useDebounce } from "use-debounce";
 import productService from "../services/products";
 import { Filter } from "../types";
 import ProductListing from "./ProductListing";
+import ErrorBox from "./_common/ErrorBox";
 import ProductSearchForm from "./_common/ProductSearchForm";
+import TableLoadingSkeleton from "./_common/TableLoadingSkeleton";
 
+/**
+ * `Products` component is responsible for fetching and displaying the list of
+ * products.
+ */
 const Products = () => {
   const [filter, setFilter] = useState<Filter>(Filter.SCRUM_MASTER);
   const [query, setQuery] = useState<string>("");
@@ -31,37 +25,6 @@ const Products = () => {
   } = useQuery(["products", filter, debouncedQuery], () =>
     productService.getAll({ type: filter, query: debouncedQuery })
   );
-
-  const showLoading = () => (
-    <Stack w="100%">
-      <Skeleton height={10} />
-      <Skeleton height={10} />
-      <Skeleton height={10} />
-    </Stack>
-  );
-
-  const showError = () => {
-    return (
-      <Alert
-        status="error"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
-        paddingY={10}
-        borderRadius={5}
-      >
-        <AlertIcon boxSize="40px" mr={0} />
-        <AlertTitle mt={4} mb={1} fontSize="lg">
-          Failed to load products
-        </AlertTitle>
-        <AlertDescription maxWidth="sm">
-          Sorry, we had some trouble loading the products. Please try again
-          later.
-        </AlertDescription>
-      </Alert>
-    );
-  };
 
   return (
     <Container maxW="container.xl" padding={5} mb="16">
@@ -87,9 +50,12 @@ const Products = () => {
           )}
         </Flex>
         {isLoading || !products ? (
-          showLoading()
+          <TableLoadingSkeleton skeletonCount={3} />
         ) : error ? (
-          showError()
+          <ErrorBox
+            title="Failed to load products"
+            description="Sorry, we had some trouble loading the products. Please try again later."
+          />
         ) : (
           <ProductListing products={products} />
         )}

@@ -13,11 +13,26 @@ import {
 import React, { HTMLAttributes, KeyboardEvent, useRef } from "react";
 
 interface Props extends Omit<HTMLAttributes<HTMLInputElement>, "onChange"> {
+  /**
+   * Function that is called when the value of the input field changes.
+   * @param value
+   */
   onChange: (value: string[]) => void;
+  /**
+   * Array of strings that are displayed as `Tag` components.
+   */
   value: string[];
+  /**
+   * Boolean that determines whether the input field is disabled.
+   */
   isSubmitting: boolean;
 }
 
+/**
+ * `TagInput` is a component that renders an input field that allows users to
+ * add tags which are displayed as `Tag` components. The value is an array of
+ * strings.
+ */
 const TagInput = ({ onChange, value, isSubmitting }: Props) => {
   const [inputValue, setInputValue] = React.useState<string>("");
 

@@ -19,12 +19,28 @@ import { Methodology, NewProductEntry } from "../../types";
 import TagInput from "./TagInput";
 
 interface Props {
+  /**
+   * `react-hook-form` form errors.
+   */
   errors: FieldErrors<NewProductEntry>;
+  /**
+   * `react-hook-form` form register function.
+   */
   register: UseFormRegister<NewProductEntry>;
+  /**
+   * `react-hook-form` form initial focus ref.
+   */
   initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
+  /**
+   * `react-hook-form` form control.
+   */
   control: Control<NewProductEntry, any>;
 }
 
+/**
+ * `ProductFormFields` is a component that renders the form fields for adding
+ * and editing products. It uses `react-hook-form` to manage the form state.
+ */
 const ProductFormFields = ({
   errors,
   register,
@@ -45,6 +61,7 @@ const ProductFormFields = ({
             ref={(e) => {
               ref(e);
               if (e) {
+                // Set initial focus to the product name input
                 initialFocusRef.current = e;
               }
             }}

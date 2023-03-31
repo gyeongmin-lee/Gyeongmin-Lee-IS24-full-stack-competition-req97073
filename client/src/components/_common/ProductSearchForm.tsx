@@ -10,12 +10,28 @@ import React from "react";
 import { Filter } from "../../types";
 
 interface Props {
+  /**
+   * Value of the filter select.
+   */
   filter: Filter;
+  /**
+   * Value of the search input.
+   */
   query: string;
+  /**
+   * Function that is called when the value of the filter select changes.
+   */
   onFilterChange: (value: Filter) => void;
+  /**
+   * Function that is called when the value of the search input changes.
+   */
   onQueryChange: (value: string) => void;
 }
 
+/**
+ * `ProductSearchForm` is a component that renders a form that allows users to
+ * search for products by columns.
+ */
 const ProductSearchForm: React.FC<Props> = ({
   filter,
   query,

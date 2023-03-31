@@ -34,6 +34,11 @@ const defaultValues: NewProductEntry = {
   methodology: Methodology.AGILE,
 };
 
+/**
+ * `AddProduct` is a component that renders a button that opens a modal that
+ * allows users to add a new product. It uses `react-hook-form` to manage the
+ * form state.
+ */
 const AddProduct = () => {
   const children = useBreakpointValue({
     base: "Add",

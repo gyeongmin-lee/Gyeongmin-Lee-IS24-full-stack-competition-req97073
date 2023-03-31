@@ -18,6 +18,9 @@ import { Methodology, Product } from "../types";
 import EditProductDrawer from "./EditProductDrawer";
 
 interface Props {
+  /**
+   * Products to render.
+   */
   products: Product[];
 }
 
@@ -45,6 +48,10 @@ const DevelopersCell = ({ value: devs }: { value: string[] }) => {
   );
 };
 
+/**
+ * `ProductListing` is a memoized component that renders a table of products.
+ * It uses `react-table` to render the table.
+ */
 const ProductListing = memo(({ products }: Props) => {
   const columns = useMemo<Column<Product>[]>(
     () => [
@@ -52,6 +59,7 @@ const ProductListing = memo(({ products }: Props) => {
         Header: () => null,
         accessor: "productId",
         id: "editProduct",
+        // The `Cell` property returns a button that opens the edit product drawer
         Cell: ({ cell: { value } }: CellProps<Product, number>) => {
           const product = products.find((p) => p.productId === value);
           return <EditProductDrawer product={product} />;

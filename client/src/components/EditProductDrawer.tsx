@@ -26,9 +26,16 @@ import { productSchema } from "../utils/schema";
 import ProductFormFields from "./_common/ProductFormFields";
 
 interface Props {
+  /**
+   * Product to edit.
+   */
   product: Product | undefined;
 }
 
+/**
+ * `EditProductDrawer` is a component that renders a drawer that allows users to
+ * edit a product. It uses `react-hook-form` to manage the form state.
+ */
 const EditProductDrawer = ({ product }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
@@ -112,7 +119,7 @@ const EditProductDrawer = ({ product }: Props) => {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent overflowY={"auto"}>
           <DrawerCloseButton top={3} />
           <DrawerHeader>Edit Product</DrawerHeader>
 
